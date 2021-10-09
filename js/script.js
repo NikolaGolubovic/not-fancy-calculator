@@ -111,6 +111,11 @@ buttons.forEach((button) =>
       freshStart = true;
       arrLog.push(activeString);
       activeString = strip(operations(arrLog.join("")));
+      if (activeString > 99999999989) {
+        alert(
+          "Be careful with very large numbers, calculator is not precise with them"
+        );
+      }
     }
     if (
       (value === "+" && !activeString.endsWith(".")) ||
@@ -144,17 +149,22 @@ buttons.forEach((button) =>
       (value === "0" && activeString !== "0") ||
       (Number(value) && activeString !== "0")
     ) {
-      console.log(activeString);
+      if (activeString.length > 11) {
+        alert(
+          "Be careful with very large numbers, calculator is not precise with them"
+        );
+        return;
+      }
       activeString += value;
     }
     screenTotalLog.textContent = arrLog.join("");
 
-    activeString.toString().length > 12 &&
-      alert("For very large numbers calculator is not 100% precise :(");
-    activeString =
-      activeString.toString().length > 12
-        ? Number(activeString.toString().slice(0, 13))
-        : activeString;
+    // activeString.toString().length > 12 &&
+    //   alert("For very large numbers calculator is not 100% precise :(");
+    // activeString =
+    //   activeString.toString().length > 12
+    //     ? Number(activeString.toString().slice(0, 12))
+    //     : activeString;
     screen.textContent = separateNumber(activeString);
   })
 );
