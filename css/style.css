@@ -165,6 +165,9 @@ html[data-theme="purple"] {
         text-align: right;
         height: 80px;
     }
+    .large-num-error {
+        font-size: 0.5rem;
+    }
     .screen-log {
         color: var(--text-nav-color);
         position: absolute;

@@ -97,6 +97,7 @@ buttons.forEach((button) =>
   button.addEventListener("click", function () {
     const value = button.textContent;
     activeString = activeString.toString();
+    screen.classList.remove("large-num-error");
     if (value === "RESET") {
       activeString = "";
       logNumber = undefined;
@@ -115,6 +116,7 @@ buttons.forEach((button) =>
         alert(
           "Be careful with very large numbers, calculator is not precise with them"
         );
+        screen.classList.add("large-num-error");
       }
     }
     if (
