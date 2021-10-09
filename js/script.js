@@ -156,8 +156,13 @@ const themeLocalStorage = "calc-theme-";
 window.addEventListener("load", function () {
   const pos = window.localStorage.getItem(`${themeLocalStorage}-pos`);
   const theme = window.localStorage.getItem(`${themeLocalStorage}-theme`);
-  circle.style.transform = `translateX(${pos * 25}px)`;
-  document.documentElement.setAttribute("data-theme", theme);
+  if (pos) {
+    circle.style.transform = `translateX(${pos * 25}px)`;
+    document.documentElement.setAttribute("data-theme", theme);
+  } else {
+    circle.style.transform = `translateX(${0 * 25}px)`;
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
 });
 
 slider.addEventListener("click", function (e) {
