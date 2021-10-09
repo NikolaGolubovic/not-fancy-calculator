@@ -140,11 +140,21 @@ buttons.forEach((button) =>
     if (value === "." && activeString && !activeString.includes(".")) {
       activeString += value;
     }
-    if ((value === "0" && activeString !== "0") || Number(value)) {
+    if (
+      (value === "0" && activeString !== "0") ||
+      (Number(value) && activeString !== "0")
+    ) {
       console.log(activeString);
       activeString += value;
     }
     screenTotalLog.textContent = arrLog.join("");
+
+    activeString.toString().length > 12 &&
+      alert("For very large numbers calculator is not 100% precise :(");
+    activeString =
+      activeString.toString().length > 12
+        ? Number(activeString.toString().slice(0, 13))
+        : activeString;
     screen.textContent = separateNumber(activeString);
   })
 );
