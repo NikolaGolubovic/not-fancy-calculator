@@ -229,18 +229,18 @@ html[data-theme="purple"] {
 
 @media (min-width: 1024px) {
     .calculator {
-        width: 30%;
+        width: 40%;
     }
 }
 
-/* @media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .calculator {
-        width: 55%;
+        width: 30%;
     }
 }
 
 @media (min-width: 1920px) {
     .calculator {
-        width: 45%;
+        width: 20%;
     }
-} */
+}
