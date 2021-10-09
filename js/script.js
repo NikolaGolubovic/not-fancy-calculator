@@ -105,6 +105,9 @@ buttons.forEach((button) =>
       arrLog = [];
     } else if (value === "=") {
       // EQUAL OPERATION, just for ctrl f
+      if (freshStart) {
+        return;
+      }
       freshStart = true;
       arrLog.push(activeString);
       activeString = strip(operations(arrLog.join("")));
@@ -137,11 +140,8 @@ buttons.forEach((button) =>
     if (value === "." && activeString && !activeString.includes(".")) {
       activeString += value;
     }
-    if (
-      (value === "0" && activeString !== "0") ||
-      value === "0" ||
-      Number(value)
-    ) {
+    if ((value === "0" && activeString !== "0") || Number(value)) {
+      console.log(activeString);
       activeString += value;
     }
     screenTotalLog.textContent = arrLog.join("");
