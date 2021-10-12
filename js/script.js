@@ -10,6 +10,7 @@ let freshStart = false;
 
 // 1,000,000,000
 function separateNumber(str) {
+  console.log(str);
   str = str.toString();
   if (str.includes(".")) {
     return str;
@@ -17,6 +18,10 @@ function separateNumber(str) {
   let formatedNum = "";
   let posFromStart = 0;
   for (let i = str.length - 1; 0 <= i; i--) {
+    if (str[i] === "-") {
+      formatedNum = formatedNum.slice(1) + "-";
+      continue;
+    }
     if (posFromStart % 3 === 0) {
       formatedNum += "," + str[i];
       posFromStart += 1;
